@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>SCFirstOrderLogic.ExampleDomains</RootNamespace>
+    <AssemblyName>SCFirstOrderLogic.ExampleDomains</AssemblyName>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Description>A few simple first-order logic domains declared using the models found in the SCFirstOrderLogic package - for use in tests and demos.</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>SCFirstOrderLogic-128.png</PackageIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="_PackageFiles\SCFirstOrderLogic.ExampleDomains.md" Pack="true" PackagePath="README.md" />
+    <None Include="_PackageFiles\SCFirstOrderLogic-128.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SCFirstOrderLogic" Version="6.0.0-pre.1" />
+  </ItemGroup>
+
+</Project>
