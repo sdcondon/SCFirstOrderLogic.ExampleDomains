@@ -1,4 +1,4 @@
-![SCFirstOrderLogic Icon](src/SCFirstOrderLogic-128.png)
+![SCFirstOrderLogic Icon](src/SCFirstOrderLogic.ExampleDomains/_PackageFiles/SCFirstOrderLogic-128.png)
 
 # SCFirstOrderLogic.ExampleDomains
 
