@@ -57,9 +57,9 @@ public static class CrimeDomain
     /// </summary>
     public static IReadOnlyCollection<Sentence> Axioms { get; }
 
-    public static OperableConstant America { get; } = new Constant(nameof(America));
-    public static OperableConstant NoNo { get; } = new Constant(nameof(NoNo));
-    public static OperableConstant ColonelWest { get; } = new Constant(nameof(ColonelWest));
+    public static OperableFunction America { get; } = new Function(nameof(America));
+    public static OperableFunction NoNo { get; } = new Function(nameof(NoNo));
+    public static OperableFunction ColonelWest { get; } = new Function(nameof(ColonelWest));
 
     public static OperablePredicate IsAmerican(OperableTerm t) => new Predicate(nameof(IsAmerican), t);
     public static OperablePredicate IsHostile(OperableTerm t) => new Predicate(nameof(IsHostile), t);

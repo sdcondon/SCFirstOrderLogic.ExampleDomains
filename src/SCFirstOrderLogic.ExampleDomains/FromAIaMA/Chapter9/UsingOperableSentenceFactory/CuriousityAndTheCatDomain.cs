@@ -59,9 +59,9 @@ public static class CuriousityAndTheCatDomain
     /// </summary>
     public static IReadOnlyCollection<Sentence> Axioms { get; }
 
-    public static OperableConstant Jack { get; } = new Constant(nameof(Jack));
-    public static OperableConstant Tuna { get; } = new Constant(nameof(Tuna));
-    public static OperableConstant Curiousity { get; } = new Constant(nameof(Curiousity));
+    public static OperableFunction Jack { get; } = new Function(nameof(Jack));
+    public static OperableFunction Tuna { get; } = new Function(nameof(Tuna));
+    public static OperableFunction Curiousity { get; } = new Function(nameof(Curiousity));
 
     public static OperablePredicate IsAnimal(OperableTerm subject) => new Predicate(nameof(IsAnimal), subject);
     public static OperablePredicate IsCat(OperableTerm subject) => new Predicate(nameof(IsCat), subject);

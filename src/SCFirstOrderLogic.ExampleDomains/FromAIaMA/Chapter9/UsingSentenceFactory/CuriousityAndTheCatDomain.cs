@@ -58,9 +58,9 @@ public static class CuriousityAndTheCatDomain
     /// </summary>
     public static IReadOnlyCollection<Sentence> Axioms { get; }
 
-    public static Constant Jack { get; } = new Constant(nameof(Jack));
-    public static Constant Tuna { get; } = new Constant(nameof(Tuna));
-    public static Constant Curiousity { get; } = new Constant(nameof(Curiousity));
+    public static Function Jack { get; } = new Function(nameof(Jack));
+    public static Function Tuna { get; } = new Function(nameof(Tuna));
+    public static Function Curiousity { get; } = new Function(nameof(Curiousity));
 
     public static Predicate IsAnimal(Term subject) => new Predicate(nameof(IsAnimal), subject);
     public static Predicate IsCat(Term subject) => new Predicate(nameof(IsCat), subject);

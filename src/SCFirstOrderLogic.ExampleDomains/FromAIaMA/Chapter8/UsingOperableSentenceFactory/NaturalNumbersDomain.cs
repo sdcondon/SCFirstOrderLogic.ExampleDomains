@@ -39,7 +39,7 @@ public static class NaturalNumbersDomain
     /// </summary>
     public static IReadOnlyCollection<Sentence> Axioms { get; }
 
-    public static OperableConstant Zero { get; } = new Constant(nameof(Zero));
+    public static OperableFunction Zero { get; } = new Function(nameof(Zero));
 
     public static OperableFunction Successor(OperableTerm t) => new Function(nameof(Successor), t);
 

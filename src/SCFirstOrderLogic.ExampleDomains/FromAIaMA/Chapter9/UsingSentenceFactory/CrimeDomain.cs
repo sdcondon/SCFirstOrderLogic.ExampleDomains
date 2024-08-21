@@ -57,9 +57,9 @@ public static class CrimeDomain
     /// </summary>
     public static IReadOnlyCollection<Sentence> Axioms { get; }
 
-    public static Constant America { get; } = new Constant(nameof(America));
-    public static Constant NoNo { get; } = new Constant(nameof(NoNo));
-    public static Constant ColonelWest { get; } = new Constant(nameof(ColonelWest));
+    public static Function America { get; } = new Function(nameof(America));
+    public static Function NoNo { get; } = new Function(nameof(NoNo));
+    public static Function ColonelWest { get; } = new Function(nameof(ColonelWest));
 
     public static Predicate IsAmerican(Term t) => new Predicate(nameof(IsAmerican), t);
     public static Predicate IsHostile(Term t) => new Predicate(nameof(IsHostile), t);
