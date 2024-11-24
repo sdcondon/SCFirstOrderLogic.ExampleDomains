@@ -4,7 +4,7 @@
 
 [![NuGet version (SCFirstOrderLogic.Examples)](https://img.shields.io/nuget/v/SCFirstOrderLogic.ExampleDomains.svg?style=flat-square)](https://www.nuget.org/packages/SCFirstOrderLogic.ExampleDomains/) 
 [![NuGet downloads (SCFirstOrderLogic.Examples)](https://img.shields.io/nuget/dt/SCFirstOrderLogic.ExampleDomains.svg?style=flat-square)](https://www.nuget.org/packages/SCFirstOrderLogic.ExampleDomains/) 
-[![Commits since latest release](https://img.shields.io/github/commits-since/sdcondon/SCFirstOrderLogic.ExampleDomains/latest?style=flat-square)](https://github.com/sdcondon/SCFirstOrderLogic.ExampleDomains/compare/1.0.0...main) 
+[![Commits since latest release](https://img.shields.io/github/commits-since/sdcondon/SCFirstOrderLogic.ExampleDomains/latest?style=flat-square)](https://github.com/sdcondon/SCFirstOrderLogic.ExampleDomains/compare/1.1.0...main) 
 
 This repository contains the source code for the SCFirstOrderLogic.ExampleDomains NuGet package.
 
