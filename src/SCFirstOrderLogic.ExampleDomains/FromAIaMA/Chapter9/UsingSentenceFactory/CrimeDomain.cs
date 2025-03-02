@@ -57,16 +57,16 @@ public static class CrimeDomain
     /// </summary>
     public static IReadOnlyCollection<Sentence> Axioms { get; }
 
-    public static Function America { get; } = new Function(nameof(America));
-    public static Function NoNo { get; } = new Function(nameof(NoNo));
-    public static Function ColonelWest { get; } = new Function(nameof(ColonelWest));
+    public static Function America { get; } = new(nameof(America));
+    public static Function NoNo { get; } = new(nameof(NoNo));
+    public static Function ColonelWest { get; } = new(nameof(ColonelWest));
 
-    public static Predicate IsAmerican(Term t) => new Predicate(nameof(IsAmerican), t);
-    public static Predicate IsHostile(Term t) => new Predicate(nameof(IsHostile), t);
-    public static Predicate IsCriminal(Term t) => new Predicate(nameof(IsCriminal), t);
-    public static Predicate IsWeapon(Term t) => new Predicate(nameof(IsWeapon), t);
-    public static Predicate IsMissile(Term t) => new Predicate(nameof(IsMissile), t);
-    public static Predicate Owns(Term owner, Term owned) => new Predicate(nameof(Owns), owner, owned);
-    public static Predicate Sells(Term seller, Term item, Term buyer) => new Predicate(nameof(Sells), seller, item, buyer);
-    public static Predicate IsEnemyOf(Term t, Term other) => new Predicate(nameof(IsEnemyOf), t, other);
+    public static Predicate IsAmerican(Term t) => new(nameof(IsAmerican), t);
+    public static Predicate IsHostile(Term t) => new(nameof(IsHostile), t);
+    public static Predicate IsCriminal(Term t) => new(nameof(IsCriminal), t);
+    public static Predicate IsWeapon(Term t) => new(nameof(IsWeapon), t);
+    public static Predicate IsMissile(Term t) => new(nameof(IsMissile), t);
+    public static Predicate Owns(Term owner, Term owned) => new(nameof(Owns), owner, owned);
+    public static Predicate Sells(Term seller, Term item, Term buyer) => new(nameof(Sells), seller, item, buyer);
+    public static Predicate IsEnemyOf(Term t, Term other) => new(nameof(IsEnemyOf), t, other);
 }

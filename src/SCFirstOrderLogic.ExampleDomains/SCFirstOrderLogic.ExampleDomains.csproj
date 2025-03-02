@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="SCFirstOrderLogic" Version="7.0.1" />
+    <PackageReference Include="SCFirstOrderLogic" Version="7.4.0" />
   </ItemGroup>
 
 </Project>

@@ -58,12 +58,12 @@ public static class CuriousityAndTheCatDomain
     /// </summary>
     public static IReadOnlyCollection<Sentence> Axioms { get; }
 
-    public static Function Jack { get; } = new Function(nameof(Jack));
-    public static Function Tuna { get; } = new Function(nameof(Tuna));
-    public static Function Curiousity { get; } = new Function(nameof(Curiousity));
+    public static Function Jack { get; } = new(nameof(Jack));
+    public static Function Tuna { get; } = new(nameof(Tuna));
+    public static Function Curiousity { get; } = new(nameof(Curiousity));
 
-    public static Predicate IsAnimal(Term subject) => new Predicate(nameof(IsAnimal), subject);
-    public static Predicate IsCat(Term subject) => new Predicate(nameof(IsCat), subject);
-    public static Predicate Loves(Term subject, Term @object) => new Predicate(nameof(Loves), subject, @object);
-    public static Predicate Kills(Term subject, Term @object) => new Predicate(nameof(Kills), subject, @object);
+    public static Predicate IsAnimal(Term subject) => new(nameof(IsAnimal), subject);
+    public static Predicate IsCat(Term subject) => new(nameof(IsCat), subject);
+    public static Predicate Loves(Term subject, Term @object) => new(nameof(Loves), subject, @object);
+    public static Predicate Kills(Term subject, Term @object) => new(nameof(Kills), subject, @object);
 }
