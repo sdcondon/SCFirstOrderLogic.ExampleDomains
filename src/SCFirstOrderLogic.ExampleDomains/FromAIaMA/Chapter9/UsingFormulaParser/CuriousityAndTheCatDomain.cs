@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SCFirstOrderLogic.SentenceCreation;
+using SCFirstOrderLogic.FormulaCreation;
 
-namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter9.UsingSentenceParser;
+namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter9.UsingFormulaParser;
 
 /// <summary>
 /// <para>
@@ -13,12 +13,12 @@ namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter9.UsingSentenceParse
 /// Example usage:
 /// </para>
 /// <code>
-/// using SCFirstOrderLogic.SentenceCreation;
-/// using static SCFirstOrderLogic.ExampleDomains.AiAModernApproach.Chapter9.CuriousityAndTheCatDomain;
+/// using SCFirstOrderLogic.FormulaCreation;
+/// using static SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter9.CuriousityAndTheCatDomain;
 /// ..
 /// IKnowledgeBase kb = .. // a knowledge base implementation
 /// kb.Tell(Axioms);
-/// var answer = kb.Ask(SentenceParser.Parse("Kills(Curiousity, Tuna)")); // should return true
+/// var answer = kb.Ask(FormulaParser.Default.Parse("Kills(Curiousity, Tuna)")); // should return true
 /// </code>
 /// </summary>
 public static class CuriousityAndTheCatDomain
@@ -49,9 +49,9 @@ public static class CuriousityAndTheCatDomain
     /// Gets the axioms of the domain.
     /// (Okay, some of these can't really be described as axioms, but..).
     /// </summary>
-    public static IReadOnlyCollection<Sentence> Axioms => UnparsedAxioms.Select(s => SentenceParser.BasicParser.Parse(s)).ToList().AsReadOnly();
+    public static IReadOnlyCollection<Formula> Axioms => UnparsedAxioms.Select(s => FormulaParser.Default.Parse(s)).ToList().AsReadOnly();
 
     public static string UnparsedExampleQuery { get; } = "Kills(Curiousity, Tuna)";
 
-    public static Sentence ExampleQuery => SentenceParser.BasicParser.Parse(UnparsedExampleQuery);
+    public static Formula ExampleQuery => FormulaParser.Default.Parse(UnparsedExampleQuery);
 }

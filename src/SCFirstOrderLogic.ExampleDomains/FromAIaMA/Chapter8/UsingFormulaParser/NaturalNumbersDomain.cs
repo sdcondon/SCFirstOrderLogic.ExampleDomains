@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SCFirstOrderLogic.SentenceCreation;
+using SCFirstOrderLogic.FormulaCreation;
 
-namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter8.UsingSentenceParser;
+namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter8.UsingFormulaParser;
 
 /// <summary>
 /// <para>
@@ -20,12 +20,12 @@ namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter8.UsingSentenceParse
 /// </summary>
 public static class NaturalNumbersDomain
 {
-    public static IReadOnlyCollection<Sentence> Axioms { get; } = new[]
+    public static IReadOnlyCollection<Formula> Axioms { get; } = new[]
     {
         "∀ x, ¬(Successor(x) = 0)",
         "∀ x, y, ¬[x = y] => ¬[Successor(x) = Successor(y)]",
         "∀ x, Add(0, x) = x",
         "∀ x, y, Add(Successor(x), y) = Add(Successor(y), x)",
 
-    }.Select(s => SentenceParser.BasicParser.Parse(s)).ToList().AsReadOnly();
+    }.Select(s => FormulaParser.Default.Parse(s)).ToList().AsReadOnly();
 }

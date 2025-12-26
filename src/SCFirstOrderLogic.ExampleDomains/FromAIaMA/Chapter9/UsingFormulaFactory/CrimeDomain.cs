@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using static SCFirstOrderLogic.SentenceCreation.SentenceFactory;
+using static SCFirstOrderLogic.FormulaCreation.FormulaFactory;
 
-namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter9.UsingSentenceFactory;
+namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter9.UsingFormulaFactory;
 
 /// <summary>
 /// <para>
@@ -11,7 +11,7 @@ namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter9.UsingSentenceFacto
 /// Example usage:
 /// </para>
 /// <code>
-/// using static SCFirstOrderLogic.ExampleDomains.AiAModernApproach.Chapter9.CrimeDomain;
+/// using static SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter9.CrimeDomain;
 /// ..
 /// IKnowledgeBase kb = .. // a knowledge base implementation
 /// kb.Tell(Axioms);
@@ -22,7 +22,7 @@ public static class CrimeDomain
 {
     static CrimeDomain()
     {
-        Axioms = new List<Sentence>()
+        Axioms = new List<Formula>()
         {
             // "... it is a crime for an American to sell weapons to hostile nations":
             // American(x) ∧ Weapon(y) ∧ Sells(x, y, z) ∧ Hostile(z) ⇒ Criminal(x).
@@ -55,7 +55,7 @@ public static class CrimeDomain
     /// <summary>
     /// Gets the fundamental axioms of the crime domain.
     /// </summary>
-    public static IReadOnlyCollection<Sentence> Axioms { get; }
+    public static IReadOnlyCollection<Formula> Axioms { get; }
 
     public static Function America { get; } = new(nameof(America));
     public static Function NoNo { get; } = new(nameof(NoNo));

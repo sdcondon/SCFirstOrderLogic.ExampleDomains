@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using static SCFirstOrderLogic.SentenceCreation.OperableSentenceFactory;
+using static SCFirstOrderLogic.FormulaCreation.FormulaFactory;
 
-namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter8.UsingOperableSentenceFactory;
+namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter8.UsingFormulaFactory;
 
 /// <summary>
 /// <para>
@@ -21,11 +21,11 @@ public static class NaturalNumbersDomain
 {
     static NaturalNumbersDomain()
     {
-        Axioms = new List<Sentence>()
+        Axioms = new List<Formula>()
         {
-            ForAll(X, !AreEqual(Successor(X), Zero)),
+            ForAll(X, Not(AreEqual(Successor(X), Zero))),
 
-            ForAll(X, Y, If(!AreEqual(X, Y), !AreEqual(Successor(X), Successor(Y)))),
+            ForAll(X, Y, If(Not(AreEqual(X, Y)), Not(AreEqual(Successor(X), Successor(Y))))),
 
             ForAll(X, AreEqual(Add(Zero, X), X)),
 
@@ -37,11 +37,11 @@ public static class NaturalNumbersDomain
     /// <summary>
     /// Gets the fundamental axioms of the natural numbers domain.
     /// </summary>
-    public static IReadOnlyCollection<Sentence> Axioms { get; }
+    public static IReadOnlyCollection<Formula> Axioms { get; }
 
-    public static OperableFunction Zero { get; } = new Function(nameof(Zero));
+    public static Function Zero { get; } = new(nameof(Zero));
 
-    public static OperableFunction Successor(OperableTerm t) => new Function(nameof(Successor), t);
+    public static Function Successor(Term t) => new(nameof(Successor), t);
 
-    public static OperableFunction Add(OperableTerm t, OperableTerm other) => new Function(nameof(Add), t, other);
+    public static Function Add(Term t, Term other) => new(nameof(Add), t, other);
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using static SCFirstOrderLogic.SentenceCreation.SentenceFactory;
+using static SCFirstOrderLogic.FormulaCreation.FormulaFactory;
 
-namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter9.UsingSentenceFactory;
+namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter9.UsingFormulaFactory;
 
 /// <summary>
 /// <para>
@@ -11,7 +11,7 @@ namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter9.UsingSentenceFacto
 /// Example usage:
 /// </para>
 /// <code>
-/// using static SCFirstOrderLogic.ExampleDomains.AiAModernApproach.Chapter9.CuriousityAndTheCatDomain;
+/// using static SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter9.CuriousityAndTheCatDomain;
 /// ..
 /// IKnowledgeBase kb = .. // a knowledge base implementation
 /// kb.Tell(Axioms);
@@ -22,7 +22,7 @@ public static class CuriousityAndTheCatDomain
 {
     static CuriousityAndTheCatDomain()
     {
-        Axioms = new List<Sentence>()
+        Axioms = new List<Formula>()
         {
             // Everyone who loves all animals is loved by someone.
             // ∀x [∀y Animal(y) ⇒ Loves(x, y)] ⇒ [∃y Loves(y, x)]
@@ -56,7 +56,7 @@ public static class CuriousityAndTheCatDomain
     /// <summary>
     /// Gets the fundamental axioms of the domain.
     /// </summary>
-    public static IReadOnlyCollection<Sentence> Axioms { get; }
+    public static IReadOnlyCollection<Formula> Axioms { get; }
 
     public static Function Jack { get; } = new(nameof(Jack));
     public static Function Tuna { get; } = new(nameof(Tuna));

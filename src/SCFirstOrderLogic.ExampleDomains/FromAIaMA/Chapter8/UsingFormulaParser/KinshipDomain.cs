@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SCFirstOrderLogic.SentenceCreation;
+using SCFirstOrderLogic.FormulaCreation;
 
-namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter8.UsingSentenceParser;
+namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter8.UsingFormulaParser;
 
 /// <summary>
 /// The kinship example domain from chapter 8 of Artificial Intelligence: A Modern Approach, Global Edition by Stuart Russel and Peter Norvig.
@@ -19,7 +19,7 @@ public static class KinshipDomain
     /// <summary>
     /// Gets the fundamental axioms of the kinship domain.
     /// </summary>
-    public static IReadOnlyCollection<Sentence> Axioms { get; } = new[]
+    public static IReadOnlyCollection<Formula> Axioms { get; } = new[]
     {
         // One's mother is one's female parent:
         "∀ m, c, [Mother(c) = m] ⇔ [IsFemale(m) ∧ IsParent(m, c)]",
@@ -39,16 +39,16 @@ public static class KinshipDomain
         // A sibling is another child of one's parents:
         "∀ x, y, IsSibling(x, y) ⇔ [¬(x = y) ∧ [∃ p, IsParent(p, x) ∧ IsParent(p, y)]]",
 
-    }.Select(s => SentenceParser.BasicParser.Parse(s)).ToList().AsReadOnly();
+    }.Select(s => FormulaParser.Default.Parse(s)).ToList().AsReadOnly();
 
     /// <summary>
     /// Gets some useful theorems of the kinship domain.
     /// Theorems are derivable from axioms, but might be useful for performance.
     /// </summary>
-    public static IReadOnlyCollection<Sentence> Theorems { get; } = new[]
+    public static IReadOnlyCollection<Formula> Theorems { get; } = new[]
     {
         // Siblinghood is commutative:
         "∀ x, y, IsSibling(x, y) ⇔ IsSibling(y, x)",
 
-    }.Select(s => SentenceParser.BasicParser.Parse(s)).ToList().AsReadOnly();
+    }.Select(s => FormulaParser.Default.Parse(s)).ToList().AsReadOnly();
 }

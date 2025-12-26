@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using static SCFirstOrderLogic.SentenceCreation.OperableSentenceFactory;
+using static SCFirstOrderLogic.FormulaCreation.OperableFormulaFactory;
 
-namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter8.UsingOperableSentenceFactory;
+namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter8.UsingOperableFormulaFactory;
 
 /// <summary>
 /// The kinship example domain from chapter 8 of Artificial Intelligence: A Modern Approach, Global Edition by Stuart Russel and Peter Norvig.
@@ -18,7 +18,7 @@ public static class KinshipDomain
     /// <summary>
     /// Gets the fundamental axioms of the kinship domain.
     /// </summary>
-    public static IReadOnlyCollection<Sentence> Axioms { get; } = new List<Sentence>()
+    public static IReadOnlyCollection<Formula> Axioms { get; } = new List<Formula>()
     {
         // One's mother is one's female parent:
         ForAll(M, C, Iff(AreEqual(Mother(C), M), IsFemale(M) & IsParent(M, C))),
@@ -44,7 +44,7 @@ public static class KinshipDomain
     /// Gets some useful theorems of the kinship domain.
     /// Theorems are derivable from axioms, but might be useful for performance.
     /// </summary>
-    public static IReadOnlyCollection<Sentence> Theorems { get; } = new List<Sentence>()
+    public static IReadOnlyCollection<Formula> Theorems { get; } = new List<Formula>()
     {
         // Siblinghood is commutative:
         ForAll(X, Y, Iff(IsSibling(X, Y), IsSibling(Y, X))),

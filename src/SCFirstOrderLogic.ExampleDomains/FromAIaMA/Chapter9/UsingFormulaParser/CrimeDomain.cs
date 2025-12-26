@@ -1,8 +1,8 @@
-﻿using SCFirstOrderLogic.SentenceCreation;
+﻿using SCFirstOrderLogic.FormulaCreation;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter9.UsingSentenceParser;
+namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter9.UsingFormulaParser;
 
 /// <summary>
 /// <para>
@@ -12,12 +12,12 @@ namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter9.UsingSentenceParse
 /// Example usage:
 /// </para>
 /// <code>
-/// using SCFirstOrderLogic.SentenceCreation;
-/// using static SCFirstOrderLogic.ExampleDomains.AiAModernApproach.Chapter9.CrimeDomain;
+/// using SCFirstOrderLogic.FormulaCreation;
+/// using static SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter9.CrimeDomain;
 /// ..
 /// IKnowledgeBase kb = .. // a knowledge base implementation
 /// kb.Tell(Axioms);
-/// var answer = kb.Ask(SentenceParser.Parse("IsCriminal(West)")); // should return true
+/// var answer = kb.Ask(FormulaParser.Default.Parse("IsCriminal(West)")); // should return true
 /// </code>
 /// </summary>
 public static class CrimeDomain
@@ -53,9 +53,9 @@ public static class CrimeDomain
     /// Gets the axioms of the crime domain.
     /// (okay, "IsAmerican(West)" isn't particularly fundamental, but..)
     /// </summary>
-    public static IReadOnlyCollection<Sentence> Axioms => UnparsedAxioms.Select(s => SentenceParser.BasicParser.Parse(s)).ToList().AsReadOnly();
+    public static IReadOnlyCollection<Formula> Axioms => UnparsedAxioms.Select(s => FormulaParser.Default.Parse(s)).ToList().AsReadOnly();
 
     public static string UnparsedExampleQuery { get; } = "IsCriminal(ColonelWest)";
 
-    public static Sentence ExampleQuery => SentenceParser.BasicParser.Parse(UnparsedExampleQuery);
+    public static Formula ExampleQuery => FormulaParser.Default.Parse(UnparsedExampleQuery);
 }
