@@ -5,13 +5,6 @@ namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter8.UsingOperableFormu
 
 /// <summary>
 /// The kinship example domain from chapter 8 of Artificial Intelligence: A Modern Approach, Global Edition by Stuart Russel and Peter Norvig.
-/// Example usage:
-/// <code>
-/// IKnowledgeBase kb = .. // a knowledge base implementation
-/// kb.Tell(KinshipDomain.Axioms);
-/// kb.Tell(..facts about the specific problem..);
-/// var answer = kb.Ask(..my query..);
-/// </code>
 /// </summary>
 public static class KinshipDomain
 {

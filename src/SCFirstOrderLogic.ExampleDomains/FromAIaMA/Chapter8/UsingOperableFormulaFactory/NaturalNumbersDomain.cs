@@ -4,18 +4,7 @@ using static SCFirstOrderLogic.FormulaCreation.OperableFormulaFactory;
 namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter8.UsingOperableFormulaFactory;
 
 /// <summary>
-/// <para>
 /// The natural numbers example domain from chapter 8 of Artificial Intelligence: A Modern Approach, Global Edition by Stuart Russel and Peter Norvig.
-/// </para>
-/// <para>
-/// Example usage:
-/// </para>
-/// <code>
-/// IKnowledgeBase kb = .. // a knowledge base implementation
-/// kb.Tell(NaturalNumbersDomain.Axioms);
-/// kb.Tell(..facts about the specific problem..);
-/// var answer = kb.Ask(..my query..);
-/// </code>
 /// </summary>
 public static class NaturalNumbersDomain
 {

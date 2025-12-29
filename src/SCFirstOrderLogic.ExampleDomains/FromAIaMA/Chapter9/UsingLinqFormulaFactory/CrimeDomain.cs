@@ -1,28 +1,18 @@
-﻿using SCFirstOrderLogic.LanguageIntegration;
+﻿using SCFirstOrderLogic.FormulaCreation.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using static SCFirstOrderLogic.LanguageIntegration.Operators;
+using static SCFirstOrderLogic.FormulaCreation.Linq.Operators;
 
 namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter9.UsingLanguageIntegration;
 
 /// <summary>
-/// <para>
 /// The "crime" example from section 9.3 of Artificial Intelligence: A Modern Approach, Global Edition by Stuart Russel and Peter Norvig.
-/// </para>
-/// <para>
-/// Example usage:
-/// </para>
-/// <code>
-/// ILinqKnowledgeBase&lt;CrimeDomain.IDomain, CrimeDomain.IElement&gt; kb = .. // a LINQ knowledge base implementation
-/// kb.Tell(CrimeDomain.Axioms);
-/// var answer = kb.Ask(d => d.IsCriminal(d.West)); // should return true
-/// </code>
 /// </summary>
 public static class CrimeDomain
 {
-    public static IReadOnlyCollection<Expression<Predicate<IDomain>>> Axioms { get; } = new List<Expression<Predicate<IDomain>>>()
+    public static IReadOnlyCollection<Formula> Axioms { get; } = new Expression<Predicate<IDomain>>[]
     {
         // "... it is a crime for an American to sell weapons to hostile nations":
         // ∀x, y, z IsAmerican(x) ∧ IsWeapon(y) ∧ Sells(x, y, z) ∧ IsHostile(z) ⇒ IsCriminal(x).
@@ -52,7 +42,7 @@ public static class CrimeDomain
         // IsEnemyOf(NoNo, America).
         d => d.NoNo.IsEnemyOf(d.America)
 
-    }.AsReadOnly();
+    }.Select(e => LinqFormulaFactory.Create<IDomain, IElement>(e)).ToList().AsReadOnly();
 
     public interface IDomain : IEnumerable<IElement>
     {

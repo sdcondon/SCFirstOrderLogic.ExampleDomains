@@ -4,19 +4,7 @@ using static SCFirstOrderLogic.FormulaCreation.FormulaFactory;
 namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter9.UsingFormulaFactory;
 
 /// <summary>
-/// <para>
 /// The "crime" example from section 9.3 of Artificial Intelligence: A Modern Approach, Global Edition by Stuart Russel and Peter Norvig.
-/// </para>
-/// <para>
-/// Example usage:
-/// </para>
-/// <code>
-/// using static SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter9.CrimeDomain;
-/// ..
-/// IKnowledgeBase kb = .. // a knowledge base implementation
-/// kb.Tell(Axioms);
-/// var answer = kb.Ask(IsCriminal(West)); // should return true
-/// </code>
 /// </summary>
 public static class CrimeDomain
 {

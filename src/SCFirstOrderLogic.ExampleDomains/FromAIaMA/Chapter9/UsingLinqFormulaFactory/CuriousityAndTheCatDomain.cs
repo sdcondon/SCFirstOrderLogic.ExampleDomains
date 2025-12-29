@@ -1,30 +1,21 @@
-﻿using System;
+﻿using SCFirstOrderLogic.FormulaCreation.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using static SCFirstOrderLogic.LanguageIntegration.Operators;
+using static SCFirstOrderLogic.FormulaCreation.Linq.Operators;
 
 namespace SCFirstOrderLogic.ExampleDomains.FromAIaMA.Chapter9.UsingLanguageIntegration;
 
 /// <summary>
-/// <para>
 /// The "curiousity and the cat" example from section 9.5 of Artificial Intelligence: A Modern Approach, Global Edition by Stuart Russel and Peter Norvig.
-/// </para>
-/// <para>
-/// Example usage:
-/// </para>
-/// <code>
-/// ILinqKnowledgeBase&lt;CuriousityAndTheCatDomain.IDomain, CuriousityAndTheCatDomain.IElement&gt; kb = .. // a LINQ knowledge base implementation
-/// kb.Tell(CuriousityAndTheCatDomain.Axioms);
-/// var answer = kb.Ask(d => d.Kills(d.Curiousity, d.Tuna)); // should return true
-/// </code>
 /// </summary>
 public static class CuriousityAndTheCatDomain
 {
     /// <summary>
     /// Gets the fundamental axioms of the domain.
     /// </summary>
-    public static IReadOnlyCollection<Expression<Predicate<IDomain>>> Axioms { get; } = new List<Expression<Predicate<IDomain>>>()
+    public static IReadOnlyCollection<Formula> Axioms { get; } = new Expression<Predicate<IDomain>>[]
     {
         // Everyone who loves all animals is loved by someone.
         // ∀x [∀y Animal(y) ⇒ Loves(x, y)] ⇒ [∃y Loves(y, x)]
@@ -52,7 +43,7 @@ public static class CuriousityAndTheCatDomain
         // ∀x Cat(x) ⇒ Animal(x)
         d => d.All(x => If(x.IsCat, x.IsAnimal))
 
-    }.AsReadOnly();
+    }.Select(e => LinqFormulaFactory.Create<IDomain, IElement>(e)).ToList().AsReadOnly();
 
     public interface IDomain : IEnumerable<IElement>
     {
